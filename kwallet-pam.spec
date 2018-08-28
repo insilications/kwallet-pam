@@ -6,7 +6,7 @@
 #
 Name     : kwallet-pam
 Version  : 5.13.4
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/plasma/5.13.4/kwallet-pam-5.13.4.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.13.4/kwallet-pam-5.13.4.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.13.4/kwallet-pam-5.13.4.tar.xz.sig
@@ -15,6 +15,7 @@ Group    : Development/Tools
 License  : LGPL-2.1
 Requires: kwallet-pam-lib
 Requires: kwallet-pam-license
+Requires: kwallet-pam-data
 BuildRequires : Linux-PAM-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
@@ -24,9 +25,18 @@ BuildRequires : libgpg-error-dev
 %description
 No detailed description available
 
+%package data
+Summary: data components for the kwallet-pam package.
+Group: Data
+
+%description data
+data components for the kwallet-pam package.
+
+
 %package lib
 Summary: lib components for the kwallet-pam package.
 Group: Libraries
+Requires: kwallet-pam-data
 Requires: kwallet-pam-license
 
 %description lib
@@ -49,7 +59,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535167948
+export SOURCE_DATE_EPOCH=1535433315
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -57,7 +67,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535167948
+export SOURCE_DATE_EPOCH=1535433315
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kwallet-pam
 cp COPYING.LIB %{buildroot}/usr/share/doc/kwallet-pam/COPYING.LIB
@@ -68,6 +78,10 @@ popd
 %files
 %defattr(-,root,root,-)
 /usr/lib64/libexec/pam_kwallet_init
+
+%files data
+%defattr(-,root,root,-)
+/usr/share/xdg/autostart/pam_kwallet_init.desktop
 
 %files lib
 %defattr(-,root,root,-)
