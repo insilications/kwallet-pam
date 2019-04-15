@@ -6,7 +6,7 @@
 #
 Name     : kwallet-pam
 Version  : 5.15.4
-Release  : 14
+Release  : 15
 URL      : https://download.kde.org/stable/plasma/5.15.4/kwallet-pam-5.15.4.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.15.4/kwallet-pam-5.15.4.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.15.4/kwallet-pam-5.15.4.tar.xz.sig
@@ -59,7 +59,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554220815
+export SOURCE_DATE_EPOCH=1555355870
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -67,7 +67,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1554220815
+export SOURCE_DATE_EPOCH=1555355870
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kwallet-pam
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kwallet-pam/COPYING.LIB
