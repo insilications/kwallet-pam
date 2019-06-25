@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kwallet-pam
-Version  : 5.16.1
-Release  : 19
-URL      : https://download.kde.org/stable/plasma/5.16.1/kwallet-pam-5.16.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.1/kwallet-pam-5.16.1.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.16.1/kwallet-pam-5.16.1.tar.xz.sig
+Version  : 5.16.2
+Release  : 20
+URL      : https://download.kde.org/stable/plasma/5.16.2/kwallet-pam-5.16.2.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.2/kwallet-pam-5.16.2.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.16.2/kwallet-pam-5.16.2.tar.xz.sig
 Summary  : KWallet PAM integration
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -54,14 +54,14 @@ license components for the kwallet-pam package.
 
 
 %prep
-%setup -q -n kwallet-pam-5.16.1
+%setup -q -n kwallet-pam-5.16.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1560865490
+export SOURCE_DATE_EPOCH=1561475753
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -77,7 +77,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1560865490
+export SOURCE_DATE_EPOCH=1561475753
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kwallet-pam
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kwallet-pam/COPYING.LIB
