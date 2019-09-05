@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kwallet-pam
-Version  : 5.16.4
-Release  : 22
-URL      : https://download.kde.org/stable/plasma/5.16.4/kwallet-pam-5.16.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.16.4/kwallet-pam-5.16.4.tar.xz
-Source1 : https://download.kde.org/stable/plasma/5.16.4/kwallet-pam-5.16.4.tar.xz.sig
+Version  : 5.16.5
+Release  : 23
+URL      : https://download.kde.org/stable/plasma/5.16.5/kwallet-pam-5.16.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.16.5/kwallet-pam-5.16.5.tar.xz
+Source1 : https://download.kde.org/stable/plasma/5.16.5/kwallet-pam-5.16.5.tar.xz.sig
 Summary  : KWallet PAM integration
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -20,7 +20,6 @@ BuildRequires : Linux-PAM-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : libgcrypt-dev
-BuildRequires : libgpg-error-dev
 
 %description
 How kwallet-pam works:
@@ -54,16 +53,17 @@ license components for the kwallet-pam package.
 
 
 %prep
-%setup -q -n kwallet-pam-5.16.4
+%setup -q -n kwallet-pam-5.16.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564507794
+export SOURCE_DATE_EPOCH=1567646322
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -77,7 +77,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1564507794
+export SOURCE_DATE_EPOCH=1567646322
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kwallet-pam
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/kwallet-pam/COPYING.LIB
