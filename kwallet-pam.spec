@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kwallet-pam
-Version  : 5.18.4.1
-Release  : 34
-URL      : https://download.kde.org/stable/plasma/5.18.4/kwallet-pam-5.18.4.1.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.4/kwallet-pam-5.18.4.1.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.4/kwallet-pam-5.18.4.1.tar.xz.sig
-Summary  : KWallet PAM integration
+Version  : 5.18.5
+Release  : 35
+URL      : https://download.kde.org/stable/plasma/5.18.5/kwallet-pam-5.18.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.18.5/kwallet-pam-5.18.5.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.18.5/kwallet-pam-5.18.5.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: kwallet-pam-data = %{version}-%{release}
@@ -53,35 +53,34 @@ license components for the kwallet-pam package.
 
 
 %prep
-%setup -q -n kwallet-pam-5.18.4.1
-cd %{_builddir}/kwallet-pam-5.18.4.1
+%setup -q -n kwallet-pam-5.18.5
+cd %{_builddir}/kwallet-pam-5.18.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585678449
+export SOURCE_DATE_EPOCH=1588701993
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1585678449
+export SOURCE_DATE_EPOCH=1588701993
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kwallet-pam
-cp %{_builddir}/kwallet-pam-5.18.4.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/kwallet-pam/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/kwallet-pam-5.18.5/COPYING.LIB %{buildroot}/usr/share/package-licenses/kwallet-pam/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd clr-build
 %make_install
 popd
