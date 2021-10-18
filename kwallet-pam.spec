@@ -4,7 +4,7 @@
 #
 Name     : kwallet-pam
 Version  : 5.23.0
-Release  : 51
+Release  : 52
 URL      : https://download.kde.org/stable/plasma/5.23.0/kwallet-pam-5.23.0.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.23.0/kwallet-pam-5.23.0.tar.xz
 Summary  : No detailed summary available
