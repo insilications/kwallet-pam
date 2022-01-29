@@ -1,4 +1,10 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
+buildreq-cmake
+buildreq-kde
 extra-cmake-modules
 kwallet-dev
+libgcrypt-dev
+Linux-PAM-dev
+Linux-PAM-dev
+libgcrypt-dev
